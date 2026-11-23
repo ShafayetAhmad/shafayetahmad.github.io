@@ -1,0 +1,315 @@
+/* ==========================================================================
+   ACADEMIC PROFILE
+   Styles for the homepage and subpages. The pages sit inside the theme's
+   standard #main > .page > .page__content wrapper, so the column width and
+   position come from the theme grid. Light theme only.
+   ========================================================================== */
+
+/* Colours are custom properties so the dark theme can swap them */
+:root {
+  --profile-accent: #118659;
+  --profile-accent-fade: rgba(17, 134, 89, 0.35);
+  --profile-accent-clear: rgba(17, 134, 89, 0);
+  --profile-muted: #6c7380;
+  --profile-faint: #9aa3b5;
+  --profile-rule: #e3ece6;
+  --profile-heading-rule: #f2f3f3;
+  --profile-links-text: #4b4b4b;
+  --profile-divider: #b0b7c3;
+  --profile-photo-shadow: rgba(0, 0, 0, 0.12);
+  --profile-badge-border: #ffd487;
+  --profile-badge-bg: #fff2cd;
+  --profile-badge-text: #8a4800;
+  --profile-card-border: #d3e8db;
+  --profile-card-bg: linear-gradient(135deg, #fbfdfc 0%, #f0f7f3 100%);
+  --profile-card-shadow: rgba(0, 0, 0, 0.06);
+}
+html[data-theme="dark"] {
+  --profile-accent: #5fd0a0;
+  --profile-accent-fade: rgba(95, 208, 160, 0.35);
+  --profile-accent-clear: rgba(95, 208, 160, 0);
+  --profile-muted: #9aa3ad;
+  --profile-faint: #6f7884;
+  --profile-rule: #2a3530;
+  --profile-heading-rule: #262b30;
+  --profile-links-text: #c9ced4;
+  --profile-divider: #4a525b;
+  --profile-photo-shadow: rgba(0, 0, 0, 0.45);
+  --profile-badge-border: #6b5220;
+  --profile-badge-bg: #3a2c12;
+  --profile-badge-text: #ffd487;
+  --profile-card-border: #2c4a3c;
+  --profile-card-bg: linear-gradient(135deg, #1c2421 0%, #19221e 100%);
+  --profile-card-shadow: rgba(0, 0, 0, 0.35);
+}
+
+$profile-accent: var(--profile-accent);
+$profile-muted: var(--profile-muted);
+$profile-faint: var(--profile-faint);
+$profile-rule: var(--profile-rule);
+
+.academic-page {
+  margin-top: 0.78rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+
+  a {
+    color: $profile-accent;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+}
+
+/* Name (homepage) and page title (subpages) */
+.academic-page .hero-title {
+  margin: 0 0 0.5em;
+  font-size: 1.563em;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  margin: -0.25rem 0 0.9rem;
+  color: $profile-muted;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+/* Section headings: title, a fading green rule, and a light underline */
+.academic-page h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.4em 0 0.6em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--profile-heading-rule);
+  font-size: 1.32rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.academic-page h2 > a:empty { display: none; }
+.academic-page h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--profile-accent-fade), var(--profile-accent-clear));
+}
+
+/* Photo floated into the introduction */
+.about-photo {
+  float: right;
+  width: clamp(220px, 32vw, 300px);
+  max-width: 300px;
+  height: auto;
+  margin: 6px 0 12px 22px;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px var(--profile-photo-shadow);
+}
+
+/* Row of profile links separated by thin bars */
+.quick-links {
+  margin: 0.4em 0 1em;
+  color: var(--profile-links-text);
+  font-size: 0.92rem;
+  text-align: center;
+}
+.quick-links .divider,
+.section-more .divider {
+  margin: 0 0.35em;
+  color: var(--profile-divider);
+}
+
+/* News: a short scrolling box */
+.news-hint {
+  margin: -6px 0 6px;
+  color: $profile-faint;
+  font-size: 0.82rem;
+  text-align: right;
+}
+.news-box {
+  max-height: 260px;
+  margin-bottom: 18px;
+  padding: 2px 0;
+  overflow-y: auto;
+}
+.news-box ul {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+/* Publications, projects and blog posts */
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pub-item {
+  margin-bottom: 1rem;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid $profile-rule;
+}
+.pub-item:last-child {
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.2rem;
+  border-bottom: none;
+}
+.pub-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+.pub-meta { color: $profile-muted; }
+.badge {
+  display: inline-block;
+  margin: 0.18rem 0 0.45rem;
+  padding: 0.14rem 0.62rem;
+  border: 1px solid var(--profile-badge-border);
+  border-radius: 999px;
+  background: var(--profile-badge-bg);
+  color: var(--profile-badge-text);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Experience, education and talks */
+.entry-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.entry { padding: 0.75rem 0; }
+.entry .entry__meta {
+  margin-bottom: 0.25rem;
+  color: $profile-muted;
+  font-size: 0.88rem;
+}
+.entry .entry__title { font-weight: 700; }
+.entry .entry__details { margin: 0.2rem 0 0.1rem; }
+
+/* Awards and funding */
+.achievement-list {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0 0 1.3rem;
+}
+.achievement-card {
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--profile-card-border);
+  border-radius: 12px;
+  background: var(--profile-card-bg);
+  box-shadow: 0 8px 18px var(--profile-card-shadow);
+}
+.achievement-card .achievement__meta {
+  margin-bottom: 0.28rem;
+  color: $profile-muted;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.achievement-card .achievement__title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.achievement-card p { margin: 0.32rem 0 0; }
+
+.section-more { font-size: 0.92rem; }
+
+/* Blog posts */
+.post-back { margin: 0 0 0.6rem; font-size: 0.9rem; }
+.academic-page .post-meta {
+  margin: -0.4rem 0 1.6rem;
+  color: $profile-muted;
+  font-size: 0.9rem;
+}
+.post-body {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.post-body h2 { margin-top: 2rem; }
+.post-body h3 { margin-top: 1.5rem; font-size: 1.1rem; }
+.post-body img { display: block; max-width: 100%; height: auto; margin: 1.2rem auto; border-radius: 6px; }
+.post-body figure { margin: 1.5rem 0; }
+.post-body figcaption { color: $profile-muted; font-size: 0.85rem; text-align: center; }
+.post-body blockquote {
+  margin: 1.2rem 0;
+  padding: 0.2rem 1rem;
+  border-left: 3px solid $profile-accent;
+  color: $profile-muted;
+  font-style: normal;
+}
+.post-body pre { font-size: 0.85rem; border-radius: 6px; }
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid $profile-rule;
+  font-size: 0.92rem;
+}
+.post-nav__next { margin-left: auto; text-align: right; }
+
+/* Code blocks in dark mode: lighten the default text tokens and the language badge */
+html[data-theme="dark"] .highlight .err,
+html[data-theme="dark"] .highlight .g,
+html[data-theme="dark"] .highlight .l,
+html[data-theme="dark"] .highlight .n,
+html[data-theme="dark"] .highlight .p,
+html[data-theme="dark"] .highlight .ge,
+html[data-theme="dark"] .highlight .go,
+html[data-theme="dark"] .highlight .gp,
+html[data-theme="dark"] .highlight .gs,
+html[data-theme="dark"] .highlight .gt,
+html[data-theme="dark"] .highlight .ld,
+html[data-theme="dark"] .highlight .na,
+html[data-theme="dark"] .highlight .nl,
+html[data-theme="dark"] .highlight .nn,
+html[data-theme="dark"] .highlight .nx,
+html[data-theme="dark"] .highlight .py,
+html[data-theme="dark"] .highlight .w,
+html[data-theme="dark"] .highlight .sd,
+html[data-theme="dark"] .highlight .sh { color: #c3cad1; }
+html[data-theme="dark"] div.highlighter-rouge:before,
+html[data-theme="dark"] figure.highlight:before { background-color: #2c3137; color: #9aa4ad; }
+
+@media (max-width: 700px) {
+  .about-photo {
+    display: block;
+    float: none;
+    margin: 8px auto 16px;
+  }
+}
+
+/* The CV page's name and contact block appears only in print and in the PDF */
+.cv-print-header { display: none; }
+
+@media print {
+  @page { size: A4; margin: 14mm 16mm 16mm; }
+
+  /* Everything sized in rem scales from here */
+  html { font-size: 9.5pt; }
+  html, body { background: #fff !important; }
+  body { margin: 0 !important; padding: 0 !important; font-size: 1rem; }
+  .masthead, .page__footer, .no-print, .news-hint { display: none !important; }
+  #main { margin: 0; padding: 0; max-width: none; }
+  .page { width: 100% !important; margin: 0 !important; padding: 0 !important; float: none; }
+
+  .academic-page { margin-top: 0; font-size: 1rem; line-height: 1.4; }
+  .academic-page a { color: inherit; }
+  .academic-page h2 { margin: 1.1em 0 0.4em; break-after: avoid; }
+  .entry, .pub-item, .achievement-card, li { break-inside: avoid; }
+  .entry { padding: 0.3rem 0; }
+  .entry .entry__meta { margin-bottom: 0.1rem; }
+  .achievement-list { gap: 0.4rem; }
+  .achievement-card { padding: 0.45rem 0.7rem; box-shadow: none; }
+  .academic-page ul { margin-top: 0.2rem; margin-bottom: 0.2rem; }
+  .academic-page li { margin-bottom: 0.15rem; }
+  .academic-page p { margin-bottom: 0.5rem; }
+  .news-box { max-height: none; overflow: visible; }
+
+  .cv-print-header { display: block; margin-bottom: 0.6rem; color: var(--profile-muted); }
+  .cv-print-header .cv-print-name { margin-bottom: 0.1rem; color: #333; font-size: 2rem; font-weight: 700; }
+  .page__content:has(.cv-print-header) > .hero-title { display: none; }
+}

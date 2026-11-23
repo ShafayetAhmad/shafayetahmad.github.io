@@ -1,0 +1,11 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The old site published its sitemap here. This index points search engines to the current one. -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>{{ site.url }}{{ site.baseurl }}/sitemap.xml</loc>
+  </sitemap>
+</sitemapindex>

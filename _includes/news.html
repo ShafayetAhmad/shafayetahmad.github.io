@@ -1,0 +1,9 @@
+{% comment %}News items from _data/news.yml, newest first. Pass limit=N to show only the newest N.{% endcomment %}
+{% assign items = site.data.news %}
+{% if include.limit %}{% assign items = site.data.news | slice: 0, include.limit %}{% endif %}
+<ul>
+  {% for item in items %}
+  {% assign d = item.date | append: "-01" %}
+  <li><strong>{{ d | date: "%b %Y" }}</strong>: {{ item.text }}</li>
+  {% endfor %}
+</ul>

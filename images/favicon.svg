@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    text { fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) { text { fill: #e8e8e3; } }
+  </style>
+  <text
+    x="16"
+    y="23"
+    text-anchor="middle"
+    font-family="Charter, Cambria, Georgia, serif"
+    font-size="26"
+  >S</text>
+</svg>

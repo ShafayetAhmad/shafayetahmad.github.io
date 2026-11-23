@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{% include base_path %}
+{% assign minutes = content | strip_html | number_of_words | divided_by: site.words_per_minute | at_least: 1 %}
+<div id="main" role="main">
+  <article class="page" itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="headline" content="{{ page.title | escape }}">
+    {% if page.summary %}<meta itemprop="description" content="{{ page.summary | escape }}">{% endif %}
+    <div class="page__inner-wrap">
+      <section id="main-content" class="page__content academic-page blog-post">
+        <p class="post-back no-print"><a href="{{ '/blog/' | relative_url }}">← All posts</a></p>
+        <h1 class="hero-title">{{ page.title | escape }}</h1>
+        <p class="post-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %B %Y" }}</time>
+          · {{ minutes }} min read
+          {% if page.original_url %}· First published on <a href="{{ page.original_url }}">{{ page.original_source | default: "another site" }}</a>{% endif %}
+          {% if page.modified %}· Updated <time datetime="{{ page.modified | date_to_xmlschema }}" itemprop="dateModified">{{ page.modified | date: "%-d %B %Y" }}</time>{% endif %}
+        </p>
+        <div class="post-body" itemprop="articleBody">
+          {{ content }}
+        </div>
+        <nav class="post-nav no-print" aria-label="More posts">
+          {% if page.previous %}<a class="post-nav__prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | escape }}</a>{% endif %}
+          {% if page.next %}<a class="post-nav__next" href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }} →</a>{% endif %}
+        </nav>
+      </section>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,25 @@
+# Top navigation. Section links jump to the homepage; Blog and CV open their own pages.
+main:
+  - title: "News"
+    url: /#news
+  - title: "Publications"
+    url: /#publications
+  - title: "Blog"
+    url: /blog/
+  - title: "Experience"
+    url: /#experience
+  - title: "CV"
+    url: /cv/
+
+# Other pages, listed on the sitemap and linked from the homepage text.
+pages:
+  - title: "Research"
+    url: /research/
+  - title: "Publications and talks"
+    url: /publications/
+  - title: "Software and projects"
+    url: /software/
+  - title: "Blog"
+    url: /blog/
+  - title: "Curriculum vitae"
+    url: /cv/

@@ -1,0 +1,6 @@
+{% comment %}
+  Links to the site's own pages, styles and scripts are root-relative, so the
+  site works on any host (shafayetahmad.github.io, the custom domain or a
+  local preview). Full addresses for search engines and link previews come
+  from site.url in seo.html.
+{% endcomment %}{% assign base_path = site.baseurl %}

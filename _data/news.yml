@@ -1,0 +1,16 @@
+# News items, newest first, shown in the homepage news box. Keep it to real news.
+# "text" is HTML.
+- date: "2026-06"
+  text: >-
+    Gave a turbo talk, <em>AI in Fire Engineering Workflows: Opportunities, Challenges and Trustworthy Integration</em>,
+    at the NRIPS Symposium 2026, University of Greenwich.
+- date: "2026-04"
+  text: >-
+    Started my PhD in Computer Science at the <a href="https://www.gre.ac.uk/">University of Greenwich</a>,
+    supervised by <a href="https://www.gre.ac.uk/people/rep/faculty-of-engineering-and-science/peter-lawrence">Dr Peter Lawrence</a>
+    and <a href="https://www.gre.ac.uk/people/rep/faculty-of-engineering-and-science/asim-siddiqui">Dr Asim Siddiqui</a>,
+    with an <strong>M³4Impact Funded Doctoral Studentship</strong>.
+- date: "2025-10"
+  text: >-
+    Completed my MSc in Computer Science at Greenwich <strong>with Distinction</strong>. My dissertation built a
+    real-time fire and smoke detection system with human verification of alarms.

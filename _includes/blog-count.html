@@ -1,0 +1,1 @@
+{% comment %}Sets blog_count to the number of published posts, including posts listed from other sites.{% endcomment %}{% assign blog_count = site.posts.size | plus: site.external_posts.size %}

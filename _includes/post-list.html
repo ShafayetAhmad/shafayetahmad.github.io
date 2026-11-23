@@ -1,0 +1,18 @@
+{% comment %}
+  Blog posts on this site and posts published elsewhere (_external_posts), newest first.
+  include.limit: show only that many (the homepage uses 3).
+{% endcomment %}
+{% assign all_posts = site.posts | concat: site.external_posts | sort: "date" | reverse %}
+{% if include.limit %}{% assign all_posts = all_posts | slice: 0, include.limit %}{% endif %}
+{% if all_posts.size == 0 %}<p>No posts yet.</p>{% else %}
+<ol class="pub-list post-list">
+  {% for post in all_posts %}
+  {% if post.external_url %}{% assign post_href = post.external_url %}{% else %}{% assign post_href = post.url | relative_url %}{% endif %}
+  <li class="pub-item">
+    <a class="pub-title" href="{{ post_href }}">{{ post.title | escape }}</a><br>
+    <span class="pub-meta">{{ post.date | date: "%-d %B %Y" }}{% if post.external_url %} · {{ post.source | default: "External" }}{% else %}{% assign minutes = post.content | strip_html | number_of_words | divided_by: site.words_per_minute | at_least: 1 %} · {{ minutes }} min read{% endif %}</span>
+    {% if post.summary %}<br>{{ post.summary }}{% elsif post.excerpt and post.external_url == nil %}<br>{{ post.excerpt | strip_html | strip_newlines | truncatewords: 30 }}{% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}
